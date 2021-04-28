@@ -7,3 +7,10 @@ scrape_configs:
       - targets: ['application1:8080']
         labels:
           application: 'OIMS_VC'
+rule_files:
+  - 'rules.yml'
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - alertmanager:9093

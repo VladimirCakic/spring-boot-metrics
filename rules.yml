@@ -1,0 +1,10 @@
+groups:
+  - name: default
+    rules:
+      - alert: RequestRate
+        expr:  rate(http_server_requests_seconds_count{uri="/api1"}[5m]) > 0
+        for: 5s
+        labels:
+          severity: high
+        annotations:
+          summary: Aplikacija prima previse zahteva!
